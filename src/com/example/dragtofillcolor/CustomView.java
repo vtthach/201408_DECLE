@@ -21,6 +21,7 @@ public class CustomView extends View {
     private static final boolean IS_DEBUG = true;
     private static boolean IS_TEST = false;
     private static final float TEST_RADIUS = 5;
+    private static final int POLYGON_SIZE = 20;
     private static float Y_TEST = 0;
     
     final ArrayList<Polygon> polygonLists = new ArrayList<>();
@@ -60,6 +61,18 @@ public class CustomView extends View {
         
         boolean isPortrail = context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT ? true
                                                                                                                     : false;
+        if(IS_TEST){
+            rand = new Random(POLYGON_SIZE); 
+        }
+        
+        //For test total = 16
+//        initPolygon(0, deltaY);
+//        initPolygon(deltaX + 50, deltaY);
+        
+        initComplextData();
+    }
+    
+    private void initComplextData() {
         int deltaX = 30;
         int deltaY = 30;
 //        if(isPortrail){
@@ -67,20 +80,12 @@ public class CustomView extends View {
 //        } else {
 //            deltaY = 0;
 //        }
-        int size = 20;
+        int size = POLYGON_SIZE;
         for(int i = 1; i<=size; i++){
             initPolygon(deltaX * i, deltaY * i);
-        }
-        
-        if(IS_TEST){
-            rand = new Random(size); 
-        }
-        
-        //For test total = 16
-//        initPolygon(0, deltaY);
-//        initPolygon(deltaX + 50, deltaY);
+        }        
     }
-    
+
     public void initPolygon(int deltaX, int deltaY) {
         float px[], py[], px2[], py2[];
         
@@ -89,15 +94,15 @@ public class CustomView extends View {
         px2 = new float[total2];
         py2 = new float[total2];
         
-        px2[0] = deltaX + 300;
-        px2[1] = deltaX + 500;
-        px2[2] = deltaX + 300;
-        px2[3] = deltaX + 100;
+        px2[0] = deltaX + 100;
+        px2[1] = deltaX + 300;
+        px2[2] = deltaX + 200;
+        px2[3] = deltaX -100;
         
-        py2[0] = deltaY + 0;
-        py2[1] = deltaY + 100;
-        py2[2] = deltaY + 80;
-        py2[3] = deltaY + 100;
+        py2[0] = deltaY - 200;
+        py2[1] = deltaY - 100;
+        py2[2] = deltaY - 120;
+        py2[3] = deltaY - 100;
         polygonLists.add(new Polygon(px2, py2, "a"));
         
         //-----TEST2-------------------------------------------------------
@@ -322,5 +327,15 @@ public class CustomView extends View {
         Polygon ptest = polygonLists.get(rand.nextInt(polygonLists.size()));
         Y_TEST = ((ptest.getMaxY()>getHeight()?getHeight(): ptest.getMaxY())
                 + (ptest.getMinY())>getHeight()?getHeight(): ptest.getMinY())/2;        
+    }
+
+    public void setUsingComplexData(boolean isChecked) {
+        polygonLists.clear();
+        if(!isChecked){
+            initPolygon(100, 200);
+        }else {
+            initComplextData();  
+        }
+        invalidate();
     }
 }

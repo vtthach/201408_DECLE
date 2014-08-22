@@ -10,12 +10,20 @@
         android:layout_height="wrap_content"
         android:text="Start Auto Test" />
 
+    <CheckBox
+        android:id="@+id/cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn0"
+        android:checked="true"
+        android:text="Using complex data" />
+
     <LinearLayout
         android:id="@+id/layoutLeft"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/btn0"
+        android:layout_below="@+id/cb"
         android:background="#5B424151"
         android:gravity="center"
         android:orientation="horizontal"
@@ -57,7 +65,16 @@
     <com.example.dragtofillcolor.CustomView
         android:id="@+id/customView"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="match_parent"
         android:layout_below="@+id/layoutLeft" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/layoutLeft"
+        android:layout_marginRight="30dp"
+        android:text="Long click on button color to start drag" />
 
 </RelativeLayout>

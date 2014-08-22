@@ -40,6 +40,17 @@ public class MainActivity extends Activity implements OnLongClickListener {
                 customView.starTestMode(isChecked);
             }
         });
+        
+        CheckBox cb2 = (CheckBox) findViewById(R.id.cb);
+        cb2.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+            
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                customView.setUsingComplexData(isChecked);
+            }
+        });
+        
+        
     }
     
     @Override
