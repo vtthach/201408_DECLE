@@ -27,21 +27,22 @@ public class Polygon {
 
 	}
 
-	public boolean contains(float x, float y) {
-		boolean isContains = false;
-
-		for (int i = 0, j = polySides - 1; i < polySides; j = i++) {
-			if ((polyY[i] < y && polyY[j] >= y)
-					|| (polyY[j] < y && polyY[i] >= y)) {
-				if (polyX[i] + (y - polyX[i])
-						/ (polyY[j] - polyY[i])
-						* (polyX[j] - polyX[i]) < x) {
-					isContains = !isContains;
-				}
-			}
-		}
-		return isContains;
-	}
+	// float function error 
+//	public boolean contains(float x, float y) {
+//		boolean isContains = false;
+//
+//		for (int i = 0, j = polySides - 1; i < polySides; j = i++) {
+//			if ((polyY[i] < y && polyY[j] >= y)
+//					|| (polyY[j] < y && polyY[i] >= y)) {
+//				if (polyX[i] + (y - polyX[i])
+//						/ (polyY[j] - polyY[i])
+//						* (polyX[j] - polyX[i]) < x) {
+//					isContains = !isContains;
+//				}
+//			}
+//		}
+//		return isContains;
+//	}
 	
     public boolean contains(int x, int y) {
         boolean c = false;
@@ -116,7 +117,7 @@ public class Polygon {
 		return minX;
 	}
 
-	public void setMinMax() {
+	private void setMinMax() {
 		minX = maxX = polyX[0];
 		minY = maxY = polyY[0];
 		for (int i = 1; i < polySides; i++) {

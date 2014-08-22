@@ -1,42 +1,63 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:padding="10dp" >
 
-    <TextView
-        android:id="@+id/text"
+    <CheckBox
+        android:id="@+id/btn0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        tools:context=".MainActivity" />
+        android:text="Start Auto Test" />
 
-    <Button
-        android:id="@+id/btn1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:textColor="@color/red"
-        android:text="Red"
-        tools:context=".MainActivity" />
-
-    <Button
-        android:id="@+id/btn2"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/layoutLeft"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/btn1"
-        android:textColor="@color/blue"
-        android:text="Blue"
-        tools:context=".MainActivity" />
+        android:layout_below="@+id/btn0"
+        android:background="#5B424151"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="10dp" >
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:context=".MainActivity" />
+
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Red"
+            android:textColor="@color/red"
+            tools:context=".MainActivity" />
+
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn1"
+            android:text="Blue"
+            android:textColor="@color/blue"
+            tools:context=".MainActivity" />
+
+        <Button
+            android:id="@+id/btn3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn1"
+            android:text="Lavender"
+            android:textColor="@color/Lavender"
+            tools:context=".MainActivity" />
+    </LinearLayout>
 
     <com.example.dragtofillcolor.CustomView
         android:id="@+id/customView"
-        android:layout_below="@+id/btn2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true" />
+        android:layout_height="400dp"
+        android:layout_below="@+id/layoutLeft" />
 
 </RelativeLayout>

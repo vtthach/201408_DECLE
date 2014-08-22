@@ -5,8 +5,12 @@ import android.content.ClipData;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.DragShadowBuilder;
+import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.TextView;
 
 public class MainActivity extends Activity implements OnLongClickListener {
@@ -25,6 +29,17 @@ public class MainActivity extends Activity implements OnLongClickListener {
         btn.setOnLongClickListener(this);
         btn = (Button) findViewById(R.id.btn2);
         btn.setOnLongClickListener(this);
+        btn = (Button) findViewById(R.id.btn3);
+        btn.setOnLongClickListener(this);
+        
+        CheckBox cb = (CheckBox) findViewById(R.id.btn0);
+        cb.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+            
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                customView.starTestMode(isChecked);
+            }
+        });
     }
     
     @Override
